@@ -10,6 +10,7 @@
     <title>Recuperação de Senha</title>
     <link rel="stylesheet" href="style.css">
     <style>
+        /* So pra testar*/
         /* Reset de margin e padding */
         * {
             margin: 0;
