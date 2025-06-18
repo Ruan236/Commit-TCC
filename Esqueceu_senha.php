@@ -110,7 +110,7 @@
             <div class="form-group">
                 <input type="email" name="email" placeholder="Digite seu e-mail" required>
             </div>
-            <a href="http://localhost/TCC/processa_login.php"> <button type="submit" class="btn">Enviar Link de Recuperação</button >
+            <a href="processa_login.php"> <button type="submit" class="btn">Enviar Link de Recuperação</button >
         </form>
         <br>
         <br>

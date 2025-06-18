@@ -30,6 +30,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conexao->close();
 }
 
-header("location:http://localhost/TCC/login.php");
+header("location:login.php");
 exit();
 ?>

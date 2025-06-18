@@ -164,8 +164,8 @@ if (isset($_SESSION["error"])) {
     <?php endif; ?>
 
     <div class="links">
-        <a href="http://localhost/TCC/Esqueceu_senha.php">Esqueci minha senha</a>
-        <a href="http://localhost/TCC/Cadastro.php">Crie sua conta</a>
+        <a href="Esqueceu_senha.php">Esqueci minha senha</a>
+        <a href="Cadastro.php">Crie sua conta</a>
     </div>
 
     <input type="submit" value="Acessar" class="btn" />

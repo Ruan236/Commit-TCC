@@ -199,7 +199,7 @@ if (isset($_SESSION['usuario'])) {
             <input type="submit"  value="Cadastrar-se" class="btn" />
 
             <div class="login-link">
-                <p>Já tem uma conta? <a href="http://localhost/TCC/login.php">Faça login aqui</a></p>
+                <p>Já tem uma conta? <a href="login.php">Faça login aqui</a></p>
             </div>
         </form>
     </div>
