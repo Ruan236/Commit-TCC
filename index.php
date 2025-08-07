@@ -1,43 +1,6 @@
 <?php
 $site = [
-  'titulo' => 'Blockchain Verde',
-  'descricao' => 'Tecnologia Blockchain aplicada à energia renovável',
-  'autor' => 'Energia Inteligente',
-  'ano' => date('Y')
-];
 
-$secoes = [
-  [
-    'id' => 'sobre',
-    'titulo' => 'O que é Blockchain Verde?',
-    'conteudo' => 'Blockchain Verde é a aplicação da tecnologia blockchain em soluções voltadas à sustentabilidade, como o rastreamento da produção de energia limpa, compensação de carbono e redes descentralizadas de energia.',
-    'imagem' => 'Imagens/foto7.jpg'
-  ],
-  [
-    'id' => 'como-funciona',
-    'titulo' => 'Como Funciona?',
-    'conteudo' => 'A tecnologia blockchain permite que dados de produção e consumo de energia renovável sejam registrados de forma imutável, garantindo a origem sustentável da energia e viabilizando negociações peer-to-peer em redes inteligentes.',
-    'imagem' => 'Imagens/foto6.jpg'
-  ],
-  [
-    'id' => 'beneficios',
-    'titulo' => 'Benefícios Ambientais',
-    'conteudo' => '<ul><li>Transparência na origem da energia</li><li>Incentivo à geração limpa</li><li>Redução de emissões de carbono</li><li>Automação de certificações ecológicas</li></ul>',
-    'imagem' => 'Imagens/foto5.jpg'
-  ],
-  [
-    'id' => 'aplicacoes',
-    'titulo' => 'Aplicações Práticas',
-    'conteudo' => '<ul><li>Certificados de energia renovável (RECs)</li><li>Monitoramento de emissões</li><li>Rastreamento de créditos de carbono</li><li>Comércio de energia entre consumidores (P2P)</li></ul>',
-    'imagem' => 'Imagens/foto4.jpg'
-  ],
-  [
-    'id' => 'futuro',
-    'titulo' => 'O Futuro da Energia com Blockchain',
-    'conteudo' => 'Com a descentralização energética e a transição para uma matriz limpa, o blockchain se tornará essencial para validar, auditar e automatizar operações em tempo real em redes energéticas inteligentes.',
-    'imagem' => 'Imagens/foto3.jpg'
-  ],
-];
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
