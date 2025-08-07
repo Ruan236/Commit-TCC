@@ -128,28 +128,42 @@ $secoes = [
   </div>
 </nav>
 
-<!-- Conteúdo Principal -->
-<main class="container">
-  <?php foreach ($secoes as $secao): ?>
-    <section id="<?= $secao['id'] ?>" class="section">
+<!-- Bloco de Destaque com imagem de fundo -->
+<section id="hero" style="
+  background: url('Imagens/foto3.jpg') center/cover no-repeat;
+  height: 600px;
+  width: 100%;
+  position: relative;
+  margin: 0;
+  padding: 0;
+">
+  <div style="
+    background-color: rgba(0, 0, 0, 0.6);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    color: white;
+  ">
+    <div class="container">
       <div class="row align-items-center">
+        <!-- Título à esquerda -->
         <div class="col-md-6">
-          <img src="<?= $secao['imagem'] ?>" alt="<?= $secao['titulo'] ?>" class="img-fluid rounded mb-3">
+          <h1 class="display-4 fw-bold">Blockchain Verde</h1>
         </div>
+
+        <!-- Texto à direita -->
         <div class="col-md-6">
-          <h2><?= $secao['titulo'] ?></h2>
-          <p><?= $secao['conteudo'] ?></p>
+          <p class="lead">
+            🔍 Bem-vindo ao nosso portal de Energia Renovável com Blockchain!<br><br>
+            Este site foi desenvolvido para conectar <strong>empresas fornecedoras de energia renovável</strong> com <strong>usuários interessados na compra direta dessa energia</strong>, promovendo um ambiente seguro, transparente e sustentável.<br><br>
+            A seguir, explicamos como o site funciona e como você pode utilizá-lo da melhor forma:
+          </p>
+          <a href="#sobre" class="btn btn-outline-light btn-lg mt-3">Explorar</a>
         </div>
       </div>
-    </section>
-  <?php endforeach; ?>
-</main>
-
-<!-- Rodapé -->
-<footer>
-  <p>&copy; <?= $site['ano'] ?> <?= $site['autor'] ?> - Todos os direitos reservados.</p>
-</footer>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+    </div>
+  </div>
+</section>
