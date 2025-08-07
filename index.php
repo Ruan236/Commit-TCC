@@ -121,7 +121,7 @@ $secoes = [
         <?php endforeach; ?>
       </ul>
       <div class="auth-buttons ms-3">
-        <a href="Cadastro_da_empresa.php"><i class="bi bi-person-plus"></i>Empresa</a>
+        <a href="Cadastro_da_empresa.php"><i class="bi bi-person-plus"></i>empresa</a>
         <a href="Cadastro.php"><i class="bi bi-person-plus"></i>Pessoa</a>
       </div>
     </div>
