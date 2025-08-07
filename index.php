@@ -1,5 +1,11 @@
 <?php
 $site = [
+  'titulo' => 'Blockchain Verde',
+  'descricao' => 'Tecnologia Blockchain aplicada à energia renovável',
+  'autor' => 'Energia Inteligente',
+  'ano' => date('Y')
+];
+
 
 ?>
 <!DOCTYPE html>
@@ -77,13 +83,7 @@ $site = [
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       <ul class="navbar-nav">
-        <?php foreach ($secoes as $secao): ?>
-          <li class="nav-item">
-            <a class="nav-link" href="#<?= $secao['id'] ?>"><?= $secao['titulo'] ?></a>
-          </li>
-        <?php endforeach; ?>
-      </ul>
-      <div class="auth-buttons ms-3">
+        <div class="auth-buttons ms-3">
         <a href="Cadastro_da_empresa.php"><i class="bi bi-person-plus"></i>empresa</a>
         <a href="Cadastro.php"><i class="bi bi-person-plus"></i>Pessoa</a>
       </div>
