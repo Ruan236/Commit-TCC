@@ -2,7 +2,7 @@
 <?php
 session_start();
 
-// Se o usuário já estiver logado, redireciona para o dashboard
+
 if (isset($_SESSION['usuario'])) {
     header('Location: dashboard.php');
     exit();
@@ -63,7 +63,7 @@ if (isset($_SESSION['usuario'])) {
             flex-direction: column;
         }
 
-        .formLogin input {
+        .formLogin input, .formLogin select {
             padding: 10px;
             font-size: 12px;
             border: 1px solid #ccc;
@@ -74,7 +74,7 @@ if (isset($_SESSION['usuario'])) {
             outline: none;
         }
 
-        .formLogin input:focus {
+        .formLogin input:focus, .formLogin select:focus {
             border: 1px solid #28b6da;
             box-shadow: 0 0 0 2px rgba(40, 182, 218, 0.2);
         }
@@ -138,7 +138,7 @@ if (isset($_SESSION['usuario'])) {
                 font-size: 12px;
             }
 
-            .formLogin input {
+            .formLogin input, .formLogin select {
                 font-size: 12px;
             }
 
@@ -161,7 +161,7 @@ if (isset($_SESSION['usuario'])) {
 
             <div class="input-group">
                 <label for="cpf">CNPJ</label>
-                <input type="text" name="cpf" id="cpf" placeholder="Apenas números" maxlength="11" required oninput="formatarCPF(this)" />
+                <input type="text" name="cpf" id="cpf" placeholder="Apenas números" maxlength="14" required oninput="formatarCPF(this)" />
             </div>
 
             <div class="input-group">
@@ -170,18 +170,22 @@ if (isset($_SESSION['usuario'])) {
             </div>
 
             <div class="input-group">
-                <label for="data_nascimento">Data de Nascimento</label>
-                <input type="date" name="data_nascimento" id="data_nascimento" required />
-            </div>
-
-            <div class="input-group">
-                <label for="cep">Cidade</label>
+                <label for="cep">CEP</label>
                 <input type="text" name="cep" id="cep" placeholder="XXXXX-XXX" maxlength="9" required oninput="formatarCEP(this)" />
             </div>
 
             <div class="input-group">
-                <label for="email">E-mail</label>
+                <label for="email">E-mail  Empresarial</label>
                 <input type="email" name="email" id="email" placeholder="Digite seu e-mail" required />
+            </div>
+
+            <div class="input-group">
+                <label for="cargo">Cargo</label>
+                <select name="cargo" id="cargo" required>
+                    <option value="" disabled selected>Selecione seu cargo</option>
+                    <option value="chefe">Chefe</option>
+                    <option value="gerente">Gerente</option>
+                </select>
             </div>
 
             <div class="input-group">
@@ -205,8 +209,8 @@ if (isset($_SESSION['usuario'])) {
     </div>
 
     <script>
-        function formatarCPF(input) {
-            input.value = input.value.replace(/\D/g, "").slice(0, 11);
+        function formatarCNPJ(input) {
+            input.value = input.value.replace(/\D/g, "").slice(0, 14);
         }
 
         function formatarCEP(input) {
