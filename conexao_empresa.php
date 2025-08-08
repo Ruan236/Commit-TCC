@@ -1,32 +1,35 @@
 <?php
-include 'conn.php'; // Arquivo de conexão com o banco de dados
+include 'conn2.php'; 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Capturando os dados do formulário
-    $nome_empresa = $_POST["nome"];
+    
+    $nome = $_POST["nome"];
     $cnpj = $_POST["cnpj"];
     $telefone = $_POST["telefone"];
-    $email_empresarial = $_POST["email"];
-    $cep = $_POST["cep"];
+    $email_empresarial = $_POST["email_empresarial"];
     $cargo = $_POST["cargo"];
-    $senha = password_hash($_POST["senha"], PASSWORD_DEFAULT);
+    $cep = $_POST["cep"];
+    $senha = password_hash($_POST["senha"], PASSWORD_DEFAULT); 
 
-    // Inserção no banco de dados correto
-    $sql = "INSERT INTO cadastro_empresa (nome_empresa, cnpj, email_empresarial, telefone, cep, cargo, senha)
+    
+    $sql = "INSERT INTO cadastro (nome, cargo, telefone, cnpj, email_empresarial, cep, senha) 
             VALUES (?, ?, ?, ?, ?, ?, ?)";
 
     $stmt = $conexao->prepare($sql);
-    $stmt->bind_param("sssssss", $nome_empresa, $cnpj, $email_empresarial, $telefone, $cep, $cargo, $senha);
+    $stmt->bind_param("sssssss", $nome, $cpf, $telefone, $data_nascimento, $email, $cep, $senha);
 
+    
     if ($stmt->execute()) {
         echo "Cadastro realizado com sucesso!";
-        header("Location: login.php");
-        exit();
     } else {
         echo "Erro ao cadastrar: " . $stmt->error;
     }
 
+    
     $stmt->close();
     $conexao->close();
 }
+
+header("location:login2.php");
+exit();
 ?>
