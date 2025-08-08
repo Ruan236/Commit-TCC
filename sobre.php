@@ -135,27 +135,22 @@ $site = [
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: left;
+    flex-direction: column;
+    text-align: center;
     color: white;
+    padding: 2rem;
   ">
-    <div class="container">
-      <div class="row align-items-center">
-        <!-- Título à esquerda -->
-        <div class="col-md-6">
-          <h1 class="display-4 fw-bold" href="index.php" ><i class="bi bi-lightning-charge-fill"></i>Blockchain Verde</h1>
-          
-        </div>
-
-        <!-- Texto à direita -->
-        <div class="col-md-6">
-          <p class="lead">
-            Bem-vindo ao nosso portal de Energia Renovável com Blockchain!<br><br>
-            Este site foi desenvolvido para conectar <strong>empresas fornecedoras de energia renovável</strong> com <strong>usuários interessados na compra direta dessa energia</strong>, promovendo um ambiente seguro, transparente e sustentável.<br><br>
-            A seguir, explicamos como o site funciona e como você pode utilizá-lo da melhor forma:
-          </p>
-        
-        </div>
-      </div>
-    </div>
+    <h1 class="display-4 fw-bold">
+      <i class="bi bi-lightning-charge-fill"></i> Blockchain Verde
+    </h1>
+    <p class="lead mt-3" style="max-width: 800px;">
+      <h1>Guia de Uso da Plataforma</h1> 
+    </p>
+    
   </div>
 </section>
+
+
+
+
+</html> 
