@@ -150,7 +150,7 @@ if (isset($_SESSION['usuario'])) {
 </head>
 <body>
     <div class="page">
-        <form method="POST" action="conexao.php" class="formLogin" onsubmit="return validarFormulario()">
+        <form method="POST" action="conexao_empresa.php" class="formLogin" onsubmit="return validarFormulario()">
             <h1>Cadastro</h1>
             <p>Preencha os campos abaixo para criar sua conta.</p>
 
@@ -175,8 +175,8 @@ if (isset($_SESSION['usuario'])) {
             </div>
 
             <div class="input-group">
-                <label for="email">E-mail  Empresarial</label>
-                <input type="email" name="email" id="email" placeholder="Digite seu e-mail" required />
+                <label for="email">E-mail</label>
+                <input type="email" name="email" id="email" placeholder="Digite seu e-mail empresarial" required />
             </div>
 
             <div class="input-group">
@@ -202,8 +202,8 @@ if (isset($_SESSION['usuario'])) {
 
             <input type="submit"  value="Cadastrar-se" class="btn" />
 
-            <div class="login-link">
-                <p>Já tem uma conta? <a href="login.php">Faça login aqui</a></p>
+            <div class="login2-link">
+                <p>Já tem uma conta? <a href="login2.php">Faça login aqui</a></p>
             </div>
         </form>
     </div>
