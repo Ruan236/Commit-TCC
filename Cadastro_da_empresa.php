@@ -7,11 +7,11 @@ if (isset($_SESSION['usuario'])) {
     exit();
 }
 
-// Captura mensagens de erro/sucesso da sessão
+
 $error = $_SESSION['error'] ?? '';
 $success = $_SESSION['success'] ?? '';
 
-// Limpa as mensagens para não aparecerem várias vezes
+
 unset($_SESSION['error'], $_SESSION['success']);
 ?>
 <html lang="pt-BR">
@@ -20,7 +20,7 @@ unset($_SESSION['error'], $_SESSION['success']);
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Cadastro Empresa</title>
     <style>
-        /* Seu CSS aqui (mantive o mesmo que você já tinha) */
+        
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
         body {
             font-family: 'Inter', sans-serif;
