@@ -160,8 +160,6 @@ $site = [
     <p class="lead mt-3" style="max-width: 800px;">
       <h1>Guia de Uso da Plataforma</h1> 
     </p>
-
-   
     
   </div>
 </section>
