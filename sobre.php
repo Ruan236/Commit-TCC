@@ -3,7 +3,6 @@ $site = [
   'titulo' => 'Blockchain Verde',
   'descricao' => 'Tecnologia Blockchain aplicada à energia renovável',
   'autor' => 'Energia Inteligente',
-  'ano' => date('Y')
 ];
 
 
@@ -76,9 +75,10 @@ $site = [
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg sticky-top" style="background: linear-gradient(135deg, #44576d, #6f91a8);">
-  <div class="container">
+  <div class="container-fluid px-5">
+    
     <!-- Logo / Nome do Site -->
-    <a class="navbar-brand fw-bold text-white" href="#">
+    <a class="navbar-brand fw-bold text-white" href="index.php">
       <i class="bi bi-lightning-charge-fill"></i> <?= $site['titulo'] ?>
     </a>
 
@@ -87,26 +87,25 @@ $site = [
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <!-- Itens do menu -->
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-      <ul class="navbar-nav me-3">
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <!-- Menu alinhado à esquerda após logo -->
+      <ul class="navbar-nav ms-4">
         <li class="nav-item">
-          <a class="nav-link text-white" href="index.php">Início</a>
-        </li>
-        
-        <li class="nav-item">
-          <a class="nav-link text-white" href="sobre.php">Sobre</a>
+          <a class="nav-link <?= basename($_SERVER['PHP_SELF']) == 'index.php' ? 'active' : '' ?>" href="index.php">Início</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="#servicos">Serviços</a>
+          <a class="nav-link <?= basename($_SERVER['PHP_SELF']) == 'sobre.php' ? 'active' : '' ?>" href="sobre.php">Sobre</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="#contato">Contato</a>
+          <a class="nav-link <?= basename($_SERVER['PHP_SELF']) == 'servicos.php' ? 'active' : '' ?>" href="#servicos">Serviços</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link <?= basename($_SERVER['PHP_SELF']) == 'contato.php' ? 'active' : '' ?>" href="#contato">Contato</a>
         </li>
       </ul>
 
-      <!-- Botões de Ação -->
-      <div class="auth-buttons d-flex gap-4">
+      <!-- Botões à direita -->
+      <div class="auth-buttons ms-auto d-flex gap-3">
         <a href="Cadastro_da_empresa.php" class="btn btn-light btn-sm">
           <i class="bi bi-building"></i> Empresa
         </a>
@@ -117,6 +116,21 @@ $site = [
     </div>
   </div>
 </nav>
+
+<style>
+  /* Estilo para marcar a página ativa */
+  .navbar-nav .nav-link.active {
+    border-bottom: 3px solid #a9c4d6; /* Cor mais clara combinando com o site */
+    font-weight: bold;
+  }
+
+  /* Suaviza a transição */
+  .navbar-nav .nav-link {
+    transition: border-bottom 0.3s ease;
+  }
+</style>
+
+
 
 
 <!-- Bloco de Destaque com imagem de fundo -->
@@ -149,6 +163,7 @@ $site = [
     
   </div>
 </section>
+
 
 
 
