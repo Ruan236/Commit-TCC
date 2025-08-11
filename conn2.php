@@ -1,12 +1,13 @@
 <?php
-$servidor = "localhost"; 
-$usuario  = "root"; 
-$senha    = ""; 
-$banco    = "teste_tcc"; 
+// conn2.php
+$host = "localhost";
+$user = "root";
+$pass = "";
+$dbname = "teste_tcc";
 
-$conexao_empresa = new mysqli($servidor, $usuario, $senha, $banco);
+$conexao_empresa = new mysqli($host, $user, $pass, $dbname);
 
-if ($conexao2->connect_error) {
-    die("Falha na conexão: " . $conexao_empresa->connect_error);
+if ($conexao_empresa->connect_error) {
+    die("Erro na conexão: " . $conexao_empresa->connect_error);
 }
-?
+?>
