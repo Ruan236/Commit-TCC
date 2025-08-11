@@ -4,13 +4,13 @@ require 'conn2.php'; // conexão com o banco (usa $conexao_empresa)
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome_empresa       = $conexao_empresa->real_escape_string($_POST['nome_empresa']);
-    $cnpj               = $conexao_empresa->real_escape_string($_POST['cnpj']);
-    $telefone           = $conexao_empresa->real_escape_string($_POST['telefone']);
-    $cep                = $conexao_empresa->real_escape_string($_POST['cep']);
-    $email_empresarial  = $conexao_empresa->real_escape_string($_POST['email_empresarial']);
-    $cargo              = $conexao_empresa->real_escape_string($_POST['cargo']);
-    $senha              = $_POST['senha'];
-    $confSenha          = $_POST['confirmar_senha'];
+    $cnpj        = $conexao_empresa->real_escape_string($_POST['cnpj']);
+    $telefone   = $conexao_empresa->real_escape_string($_POST['telefone']);
+    $cep        = $conexao_empresa->real_escape_string($_POST['cep']);
+    $email_empresarial      = $conexao_empresa->real_escape_string($_POST['email_empresarial']);
+    $cargo      = $conexao_empresa->real_escape_string($_POST['cargo']);
+    $senha      = $_POST['senha'];
+    $confSenha  = $_POST['confirmar_senha'];
 
     if ($senha !== $confSenha) {
         $_SESSION['error'] = "As senhas não coincidem.";
@@ -20,9 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
 
-    // Corrigido para os nomes reais das colunas no banco
-    $sql = "INSERT INTO cadastro_empresa (nome_empresa, cnpj, telefone, cep, email_empresarial, cargo, senha) 
-            VALUES (?, ?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO cadastro_empresa (nome, cpf, telefone, cep, email, cargo, senha) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
     $stmt = $conexao_empresa->prepare($sql);
     if (!$stmt) {
@@ -31,8 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
 
-    // Corrigido para as variáveis certas
-    $stmt->bind_param("sssssss", $nome_empresa, $cnpj, $telefone, $cep, $email_empresarial, $cargo, $senha_hash);
+    $stmt->bind_param("sssssss", $nome, $cpf, $telefone, $cep, $email, $cargo, $senha_hash);
 
     if ($stmt->execute()) {
         $_SESSION['success'] = "Cadastro realizado com sucesso! Faça login.";
