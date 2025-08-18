@@ -165,7 +165,7 @@ if (isset($_SESSION["error"])) {
 
     <div class="links">
         <a href="Esqueceu_senha.php">Esqueci minha senha</a>
-        <a href="Cadastro.php">Crie sua conta</a>
+        <a href="Cadastro_da_empresa.php">Crie sua conta</a>
     </div>
 
     <input type="submit" value="Acessar" class="btn" />
