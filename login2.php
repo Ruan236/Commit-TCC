@@ -147,7 +147,7 @@ if (isset($_SESSION["error"])) {
 <body>
     <div class="page">
         <div class="left">
-        <form method="POST" action="processa_login.php" class="formLogin">
+        <form method="POST" action="processa_login2.php" class="formLogin">
     <h1>Login</h1>
     <p>Digite os seus dados de acesso no campo abaixo.</p>
 
