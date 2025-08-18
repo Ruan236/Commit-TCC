@@ -130,9 +130,9 @@ $site = [
           </li>
           <li class="nav-item">
             <a
-              class="nav-link <?= basename($_SERVER['PHP_SELF']) == 'sobre.php' ? 'active' : '' ?>"
-              href="sobre.php"
-              >Sobre</a
+              class="nav-link <?= basename($_SERVER['PHP_SELF']) == 'comentarios.php' ? 'active' : '' ?>"
+              href="comentarios.php"
+              >Comentários</a
             >
           </li>
           <li class="nav-item">
@@ -174,10 +174,10 @@ $site = [
       position: relative;
       margin: 0;
       padding: 0;
-    "
+      "
   >
     <div
-      style="
+    style="
         background-color: rgba(0, 0, 0, 0.6);
         height: 100%;
         width: 100%;
@@ -186,7 +186,8 @@ $site = [
         justify-content: center;
         text-align: left;
         color: white;
-      "
+        "
+      
     >
       <div class="container">
         <div class="row align-items-center">
@@ -261,10 +262,71 @@ $site = [
     </div>
   </div>
 
+  <div class="container mt-5">
+  <h1 class="mb-4">Tipos de Cadastro na Plataforma Blockchain Verde</h1>
+
+  <div class="row g-4">
+    <!-- Card Usuário Comprador -->
+    <div class="col-md-6 col-lg-3">
+      <div class="card h-100 shadow border-0">
+        <div class="card-body">
+          <h4 class="card-title">👤 Usuário Comprador</h4>
+          <p class="card-text">
+            Perfil para pessoas que desejam comprar energia renovável de forma segura.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card Empresa Fornecedora -->
+    <div class="col-md-6 col-lg-3">
+      <div class="card h-100 shadow border-0">
+        <div class="card-body">
+          <h4 class="card-title">🏭 Empresa Fornecedora</h4>
+          <p class="card-text">
+            Empresas que vendem energia renovável com segurança e rastreabilidade.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card Investidor -->
+    <div class="col-md-6 col-lg-3">
+      <div class="card h-100 shadow border-0">
+        <div class="card-body">
+          <h4 class="card-title">💹 Investidor</h4>
+          <p class="card-text">
+            Perfil destinado a quem deseja investir em projetos de energia renovável.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card Pesquisador -->
+    <div class="col-md-6 col-lg-3">
+      <div class="card h-100 shadow border-0">
+        <div class="card-body">
+          <h4 class="card-title">🔬 Pesquisador</h4>
+          <p class="card-text">
+            Usuários interessados em dados e estudos sobre blockchain e energia.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+
   <footer class="mt-5">
     <div class="container">
       <div class="row">
 
+
+      
+
+      <!-- Rodapé -->
         <!-- Sobre o site -->
         <div class="col-md-4 mb-3">
           <h5>Sobre o Blockchain Verde</h5>
@@ -278,7 +340,7 @@ $site = [
           <h5>Links Úteis</h5>
           <ul class="list-unstyled">
             <li><a href="index.php" class="text-white text-decoration-none">Início</a></li>
-            <li><a href="sobre.php" class="text-white text-decoration-none">Sobre</a></li>
+            <li><a href="comentarios.php" class="text-white text-decoration-none">Comentários</a></li>
             <li><a href="#servicos" class="text-white text-decoration-none">Serviços</a></li>
             <li><a href="#contato" class="text-white text-decoration-none">Contato</a></li>
           </ul>

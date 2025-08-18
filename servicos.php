@@ -94,7 +94,7 @@ $site = [
           <a class="nav-link <?= basename($_SERVER['PHP_SELF']) == 'index.php' ? 'active' : '' ?>" href="index.php">Início</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link <?= basename($_SERVER['PHP_SELF']) == 'sobre.php' ? 'active' : '' ?>" href="sobre.php">Sobre</a>
+          <a class="nav-link <?= basename($_SERVER['PHP_SELF']) == 'comentarios.php' ? 'active' : '' ?>" href="comentarios.php">Comentários</a>
         </li>
         <li class="nav-item">
           <a class="nav-link <?= basename($_SERVER['PHP_SELF']) == 'servicos.php' ? 'active' : '' ?>" href="servicos.php">Serviços</a>
