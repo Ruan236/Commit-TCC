@@ -130,7 +130,8 @@ unset($_SESSION['error'], $_SESSION['success']);
 
             <div class="input-group">
                 <label for="telefone">Telefone</label>
-                <input type="text" name="telefone" id="telefone" placeholder="(DDD) XXXXX-XXXX" />
+                <input type="text" name="telefone" id="telefone" placeholder="(DDD) XXXXX-XXXX" oninput="formatarTelefone(this)" />
+
             </div>
 
             <div class="input-group">
@@ -171,31 +172,43 @@ unset($_SESSION['error'], $_SESSION['success']);
     </div>
 
     <script>
-        function formatarCNPJ(input) {
-            input.value = input.value.replace(/\D/g, "").slice(0, 14);
+    function formatarCNPJ(input) {
+        let cnpj = input.value.replace(/\D/g, "").slice(0, 14);
+        cnpj = cnpj.replace(/^(\d{2})(\d)/, "$1.$2");
+        cnpj = cnpj.replace(/^(\d{2})\.(\d{3})(\d)/, "$1.$2.$3");
+        cnpj = cnpj.replace(/\.(\d{3})(\d)/, ".$1/$2");
+        cnpj = cnpj.replace(/(\d{4})(\d)/, "$1-$2");
+        input.value = cnpj;
+    }
+
+    function formatarCEP(input) {
+        let cep = input.value.replace(/\D/g, "").slice(0, 8);
+        if (cep.length > 5) {
+            input.value = cep.substring(0, 5) + "-" + cep.substring(5);
+        } else {
+            input.value = cep;
+        }
+    }
+
+    function formatarTelefone(input) {
+        let tel = input.value.replace(/\D/g, "").slice(0, 11);
+        tel = tel.replace(/^(\d{2})(\d)/g, "($1) $2");
+        tel = tel.replace(/(\d{5})(\d{1,4})$/, "$1-$2");
+        input.value = tel;
+    }
+
+    function validarFormulario() {
+        const senha = document.getElementById('senha').value;
+        const confirmarSenha = document.getElementById('confirmar_senha').value;
+
+        if (senha !== confirmarSenha) {
+            alert("As senhas não coincidem.");
+            return false;
         }
 
-        function formatarCEP(input) {
-            let cep = input.value.replace(/\D/g, "");
-            if (cep.length > 5) {
-                input.value = cep.substring(0, 5) + "-" + cep.substring(5, 8);
-            } else {
-                input.value = cep;
-            }
-        }
+        return true;
+    }
+</script>
 
-        function validarFormulario() {
-            const senha = document.getElementById('senha').value;
-            const confirmarSenha = document.getElementById('confirmar_senha').value;
-            const errorMessage = document.getElementById('error-message');
-
-            if (senha !== confirmarSenha) {
-                alert("As senhas não coincidem.");
-                return false;
-            }
-
-            return true;
-        }
-    </script>
 </body>
 </html>
