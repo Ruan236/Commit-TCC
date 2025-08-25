@@ -125,7 +125,7 @@ unset($_SESSION['error'], $_SESSION['success']);
 
             <div class="input-group">
                 <label for="cnpj">CNPJ</label>
-                <input type="text" name="cnpj" id="cnpj" placeholder="Apenas números" maxlength="14" required oninput="formatarCNPJ(this)" />
+                <input type="text" name="cnpj" id="cnpj" placeholder="Apenas números" maxlength="18" required oninput="formatarCNPJ(this)" />
             </div>
 
             <div class="input-group">
@@ -173,13 +173,13 @@ unset($_SESSION['error'], $_SESSION['success']);
 
     <script>
     function formatarCNPJ(input) {
-        let cnpj = input.value.replace(/\D/g, "").slice(0, 14); // máximo de 14 dígitos numéricos
-        cnpj = cnpj.replace(/^(\d{2})(\d)/, "$1.$2");
-        cnpj = cnpj.replace(/^(\d{2})\.(\d{3})(\d)/, "$1.$2.$3");
-        cnpj = cnpj.replace(/\.(\d{3})(\d)/, ".$1/$2");
-        cnpj = cnpj.replace(/(\d{4})(\d)/, "$1-$2");
-        input.value = cnpj;
-    }
+    let cnpj = input.value.replace(/\D/g, "").slice(0, 14); // Limita a 14 números
+    cnpj = cnpj.replace(/^(\d{2})(\d)/, "$1.$2");
+    cnpj = cnpj.replace(/^(\d{2})\.(\d{3})(\d)/, "$1.$2.$3");
+    cnpj = cnpj.replace(/\.(\d{3})(\d)/, ".$1/$2");
+    cnpj = cnpj.replace(/(\d{4})(\d)/, "$1-$2");
+    input.value = cnpj;
+}
 
     function formatarCEP(input) {
         let cep = input.value.replace(/\D/g, "").slice(0, 8);
@@ -209,7 +209,6 @@ unset($_SESSION['error'], $_SESSION['success']);
         return true;
     }
 </script>
-
 
 </body>
 </html>
