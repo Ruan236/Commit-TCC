@@ -173,7 +173,7 @@ unset($_SESSION['error'], $_SESSION['success']);
 
     <script>
     function formatarCNPJ(input) {
-        let cnpj = input.value.replace(/\D/g, "").slice(0, 14);
+        let cnpj = input.value.replace(/\D/g, "").slice(0, 14); // máximo de 14 dígitos numéricos
         cnpj = cnpj.replace(/^(\d{2})(\d)/, "$1.$2");
         cnpj = cnpj.replace(/^(\d{2})\.(\d{3})(\d)/, "$1.$2.$3");
         cnpj = cnpj.replace(/\.(\d{3})(\d)/, ".$1/$2");
@@ -209,6 +209,7 @@ unset($_SESSION['error'], $_SESSION['success']);
         return true;
     }
 </script>
+
 
 </body>
 </html>
