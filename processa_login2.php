@@ -1,48 +1,47 @@
 <?php
 session_start();
-require 'conn2.php'; // conexão com o banco (usa $conexao_empresa)
+require 'conn2.php'; // sua conexão com o banco
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $nome_empresa   = $conexao_empresa->real_escape_string($_POST['nome_empresa']);
-    $cnpj   = $conexao_empresa->real_escape_string($_POST['cnpj']);
-    $telefone   = $conexao_empresa->real_escape_string($_POST['telefone']);
-    $cep    = $conexao_empresa->real_escape_string($_POST['cep']);
-    $email_empresarial  = $conexao_empresa->real_escape_string($_POST['email_empresarial']);
-    $cargo      = $conexao_empresa->real_escape_string($_POST['cargo']);
-    $senha      = $_POST['senha'];
-    $confSenha  = $_POST['confirmar_senha'];
+    $email = $_POST['email'] ?? '';
+    $senha = $_POST['password'] ?? '';
 
-    if ($senha !== $confSenha) {
-        $_SESSION['error'] = "As senhas não coincidem.";
-        header("Location: cadastro_da_empresa.php");
-        exit();
-    }
-
-    $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
-
-    $sql = "INSERT INTO cadastro_empresa (nome_empresa, cnpj, telefone, cep, email_empresarial, cargo, senha) VALUES (?, ?, ?, ?, ?, ?, ?)";
-
-    $stmt = $conexao_empresa->prepare($sql);
-    if (!$stmt) {
-        $_SESSION['error'] = "Erro no banco: " . $conexao_empresa->error;
-        header("Location: cadastro_empresa.php");
-        exit();
-    }
-
-    $stmt->bind_param("sssssss", $nome_empresa, $cnpj, $telefone, $cep, $email_empresarial, $cargo, $senha_hash);
-
-    if ($stmt->execute()) {
-        $_SESSION['success'] = "Cadastro realizado com sucesso! Faça login.";
+    if (empty($email) || empty($senha)) {
+        $_SESSION['error'] = "Preencha todos os campos.";
         header("Location: login2.php");
         exit();
+    }
+
+    // Consulta o usuário no banco
+    $stmt = $conexao_empresa->prepare("SELECT id_empresa, nome_empresa, senha FROM cadastro_empresa WHERE email_empresarial = ?");
+ $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $resultado = $stmt->get_result();
+
+    if ($resultado->num_rows === 1) {
+        $usuario = $resultado->fetch_assoc();
+
+        if (password_verify($senha, $usuario['senha'])) {
+            // Login bem-sucedido
+            $_SESSION['usuario'] = [
+                'id' => $usuario['id_empresa'], // <- deve ser id_empresa, igual ao que você selecionou
+                'nome' => $usuario['nome_empresa']
+            ];
+            
+            header("Location: dashboard.php");
+            exit();
+        } else {
+            $_SESSION['error'] = "Senha incorreta.";
+            header("Location: login2.php");
+            exit();
+        }
     } else {
-        $_SESSION['error'] = "Erro ao cadastrar: " . $stmt->error;
-        header("Location: cadastro_empresa.php");
+        $_SESSION['error'] = "E-mail não encontrado.";
+        header("Location: login2.php");
         exit();
     }
 
     $stmt->close();
+    $conexao_empresa->close();
 }
-
-$conexao_empresa->close();
 ?>
