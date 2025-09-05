@@ -118,9 +118,16 @@ if (!isset($_SESSION["usuario"])) {
     <div class="page">
         <div class="left">
             <div class="formLogin">
-                <h1>Bem-vindo, <?php echo htmlspecialchars($_SESSION["usuario"]); ?>!</h1>
+                <h1>Bem-vindo, 
+                <?php 
+                if (isset($_SESSION["usuario"]["nome"])) {
+                    echo htmlspecialchars($_SESSION["usuario"]["nome"]);
+                } else {
+                    echo "Usuário";
+                }
+                ?>!</h1>
                 <p>Você está logado.</p>
-                <a href="index.php"  class="btn">Entrar</a>
+                <a href="index.php" class="btn">Entrar</a>
                 <p style="margin-top: 20px; font-size: 14px; color: #34495e;">
                     quer voltar para o login? <a href="logout.php" style="color: #3f88c5; font-weight: 600; text-decoration: none;">Clique aqui</a>
                 </p>
