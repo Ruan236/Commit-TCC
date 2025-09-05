@@ -127,7 +127,7 @@ if (!isset($_SESSION["usuario"])) {
                 }
                 ?>!</h1>
                 <p>Você está logado.</p>
-                <a href="index.php" class="btn">Entrar</a>
+                <a href="logado_P.php" class="btn">Entrar</a>
                 <p style="margin-top: 20px; font-size: 14px; color: #34495e;">
                     quer voltar para o login? <a href="logout.php" style="color: #3f88c5; font-weight: 600; text-decoration: none;">Clique aqui</a>
                 </p>
