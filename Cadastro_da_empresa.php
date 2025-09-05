@@ -106,7 +106,8 @@ unset($_SESSION['error'], $_SESSION['success']);
 </head>
 <body>
     <div class="page">
-        <form method="POST" action="processa_login2.php" class="formLogin" onsubmit="return validarFormulario()">
+    <form method="POST" action="conexao_empresa.php" class="formLogin" onsubmit="return validarFormulario()">
+
             <h1>Cadastro</h1>
             <p>Preencha os campos abaixo para criar sua conta.</p>
 
