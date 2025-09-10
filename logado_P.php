@@ -1,4 +1,5 @@
 <?php
+session_start();
 $site = [
   'titulo' => 'Blockchain Verde',
   'descricao' => 'Tecnologia Blockchain aplicada à energia renovável',
@@ -82,13 +83,11 @@ $site = [
       padding: 2rem 0;
     }
  
-    /* Estilo para marcar a página ativa */
     .navbar-nav .nav-link.active {
       border-bottom: 3px solid #a9c4d6;
       font-weight: bold;
     }
  
-    /* Suaviza a transição */
     .navbar-nav .nav-link {
       transition: border-bottom 0.3s ease;
     }
@@ -151,19 +150,28 @@ $site = [
           </li>
         </ul>
  
-<!-- Botões à direita -->
-<div class="auth-buttons ms-auto d-flex gap-3">
-          <a href="Cadastro_da_empresa.php" class="btn btn-light btn-sm">
-            <i class="bi bi-building"></i> Empresa
-          </a>
-          <a href="Cadastro.php" class="btn btn-warning btn-sm">
-            <i class="bi bi-person"></i> Pessoa
-          </a>
+        <!-- Botões à direita -->
+        <div class="auth-buttons ms-auto d-flex gap-3">
+          <?php if (isset($_SESSION['usuario'])): ?>
+            <span class="text-white">
+              <i class="bi bi-person-check"></i>
+              Você está logado como <strong><?= htmlspecialchars($_SESSION['usuario']) ?></strong>
+            </span>
+            <a href="logout.php" class="btn btn-danger btn-sm">
+              <i class="bi bi-box-arrow-right"></i> Sair
+            </a>
+          <?php else: ?>
+            <a href="Cadastro_da_empresa.php" class="btn btn-light btn-sm">
+              <i class="bi bi-building"></i> Empresa
+            </a>
+            <a href="Cadastro.php" class="btn btn-warning btn-sm">
+              <i class="bi bi-person"></i> Pessoa
+            </a>
+          <?php endif; ?>
         </div>
       </div>
     </div>
   </nav>
- 
  
   <!-- Bloco de Destaque com imagem de fundo -->
   <section
@@ -317,17 +325,9 @@ $site = [
   </div>
 </div>
  
- 
- 
- 
   <footer class="mt-5">
     <div class="container">
       <div class="row">
- 
- 
-     
- 
-      <!-- Rodapé -->
         <!-- Sobre o site -->
         <div class="col-md-4 mb-3">
           <h5>Sobre o Blockchain Verde</h5>
@@ -335,7 +335,6 @@ $site = [
             Plataforma dedicada à compra e venda de energia renovável com total transparência e rastreabilidade garantida pela tecnologia blockchain.
           </p>
         </div>
- 
         <!-- Links úteis -->
         <div class="col-md-4 mb-3">
           <h5>Links Úteis</h5>
@@ -346,7 +345,6 @@ $site = [
             <li><a href="#contato" class="text-white text-decoration-none">Contato</a></li>
           </ul>
         </div>
- 
         <!-- Contato -->
         <div class="col-md-4 mb-3">
           <h5>Contato</h5>
@@ -357,9 +355,7 @@ $site = [
           </p>
         </div>
       </div>
- 
       <hr style="border-color: rgba(255,255,255,0.2);" />
- 
       <!-- Data e créditos -->
       <div class="text-center">
         <small>
