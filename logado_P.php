@@ -15,96 +15,168 @@ $site = [
   <meta name="description" content="<?= $site['descricao'] ?>" />
   <meta name="author" content="<?= $site['autor'] ?>" />
   <title><?= $site['titulo'] ?></title>
- 
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
- 
+
   <style>
     body {
-      background: #ffffff;
+      background: #f4f8fb;
       font-family: 'Inter', sans-serif;
-      margin: 0;
-      padding: 0;
       color: #1e2a38;
     }
- 
     nav.navbar {
-      background: linear-gradient(135deg, #44576d, #6f91a8);
+      background: #44576d; /* Cor sólida */
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     }
- 
     .navbar-brand,
     .nav-link,
-    .auth-buttons a {
-      color: white !important;
+    .auth-buttons a,
+    .auth-buttons span {
+      color: #fff !important;
     }
- 
+    .navbar-brand {
+      font-size: 1.7rem;
+      letter-spacing: 1px;
+    }
+    .navbar-nav .nav-link.active {
+      border-bottom: 3px solid #fff;
+      font-weight: bold;
+    }
     .auth-buttons {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
- 
-    .auth-buttons a {
-      background-color: #3f88c5;
-      border: 2px solid white;
-      padding: 8px 16px;
+    .auth-buttons a, .auth-buttons span {
       border-radius: 6px;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      color: white;
-      display: inline-flex;
+      padding: 7px 18px;
+      font-size: 1rem;
+      transition: background 0.2s, color 0.2s;
+      display: flex;
       align-items: center;
-      gap: 5px;
+      gap: 7px;
     }
- 
-    .auth-buttons a:hover {
-      background-color: #316eaa;
-      transform: translateY(-1px);
+    .auth-buttons a.btn-danger {
+      background: #ff595e;
+      border: none;
+      color: #fff !important;
     }
- 
-    .section {
-      padding: 3rem 0;
+    .auth-buttons a.btn-danger:hover {
+      background: #d7263d;
+      color: #fff !important;
     }
- 
-    h2 {
-      margin-top: 1rem;
-      margin-bottom: 1rem;
+    .auth-buttons a.btn-light {
+      background: #fff;
+      color: #44576d !important;
+      border: 2px solid #fff;
     }
- 
-    .section img {
-      max-height: 300px;
-      object-fit: cover;
+    .auth-buttons a.btn-light:hover {
+      background: #e0e0e0;
+      color: #44576d !important;
     }
- 
-    footer {
-      background: linear-gradient(135deg, #44576d, #6f91a8);
-      color: white;
-      text-align: center;
-      padding: 2rem 0;
+    .auth-buttons a.btn-warning {
+      background: #ffe066;
+      color: #44576d !important;
+      border: 2px solid #ffe066;
     }
- 
-    .navbar-nav .nav-link.active {
-      border-bottom: 3px solid #a9c4d6;
+    .auth-buttons a.btn-warning:hover {
+      background: #ffd23f;
+      color: #44576d !important;
+    }
+    .auth-buttons span {
+      background: rgba(67,176,241,0.15);
+      font-weight: 500;
+      box-shadow: 0 2px 8px rgba(67,176,241,0.08);
+      color: #fff !important;
+    }
+    #hero {
+      background: url('Imagens/foto3.jpg') center/cover no-repeat;
+      height: 500px;
+      position: relative;
+      margin-bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #hero .overlay {
+      background: rgba(34, 40, 49, 0.7);
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0; left: 0;
+      z-index: 1;
+    }
+    #hero .container {
+      position: relative;
+      z-index: 2;
+    }
+    #hero h1 {
+      color: #fff;
+      font-size: 3rem;
+      font-weight: bold;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    #hero p {
+      color: #e0e0e0;
+      font-size: 1.2rem;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .card {
+      border: none;
+      border-radius: 18px;
+      box-shadow: 0 4px 24px rgba(90, 150, 200, 0.08);
+      transition: transform 0.15s;
+    }
+    .card:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 8px 32px rgba(90, 150, 200, 0.15);
+    }
+    .card-title {
+      font-size: 1.3rem;
+      color: #3a506b;
       font-weight: bold;
     }
- 
-    .navbar-nav .nav-link {
-      transition: border-bottom 0.3s ease;
+    .card-text, .card ul {
+      color: #22223b;
+      font-size: 1rem;
+    }
+    footer {
+      background: #44576d; /* Cor sólida */
+      color: #fff;
+      text-align: center;
+      padding: 2rem 0 1rem 0;
+      margin-top: 4rem;
+    }
+    footer h5 {
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+    footer a {
+      color: #fff;
+      text-decoration: underline;
+    }
+    footer a:hover {
+      color: #ffe066;
+    }
+    @media (max-width: 768px) {
+      #hero {
+        height: 350px;
+      }
+      #hero h1 {
+        font-size: 2rem;
+      }
     }
   </style>
 </head>
 <body>
- 
+
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container-fluid px-5">
- 
-      <!-- Logo / Nome do Site -->
-      <a class="navbar-brand fw-bold text-white" href="index.php">
+      <a class="navbar-brand fw-bold" href="index.php">
         <i class="bi bi-lightning-charge-fill"></i> <?= $site['titulo'] ?>
       </a>
- 
-      <!-- Botão do menu mobile -->
       <button
         class="navbar-toggler text-white"
         type="button"
@@ -116,46 +188,26 @@ $site = [
       >
         <span class="navbar-toggler-icon"></span>
       </button>
- 
       <div class="collapse navbar-collapse" id="navbarNav">
-        <!-- Menu alinhado à esquerda após logo -->
         <ul class="navbar-nav ms-4">
           <li class="nav-item">
-            <a
-              class="nav-link <?= basename($_SERVER['PHP_SELF']) == 'index.php' ? 'active' : '' ?>"
-              href="index.php"
-              >Início</a
-            >
+            <a class="nav-link <?= basename($_SERVER['PHP_SELF']) == 'index.php' ? 'active' : '' ?>" href="index.php">Início</a>
           </li>
           <li class="nav-item">
-            <a
-              class="nav-link <?= basename($_SERVER['PHP_SELF']) == 'comentarios.php' ? 'active' : '' ?>"
-              href="comentarios.php"
-              >Comentários</a
-            >
+            <a class="nav-link <?= basename($_SERVER['PHP_SELF']) == 'comentarios.php' ? 'active' : '' ?>" href="comentarios.php">Comentários</a>
           </li>
           <li class="nav-item">
-            <a
-              class="nav-link <?= basename($_SERVER['PHP_SELF']) == 'servicos.php' ? 'active' : '' ?>"
-              href="servicos.php"
-              >Serviços</a
-            >
+            <a class="nav-link <?= basename($_SERVER['PHP_SELF']) == 'servicos.php' ? 'active' : '' ?>" href="servicos.php">Serviços</a>
           </li>
           <li class="nav-item">
-            <a
-              class="nav-link <?= basename($_SERVER['PHP_SELF']) == 'contato.php' ? 'active' : '' ?>"
-              href="contato.php"
-              >Contato</a
-            >
+            <a class="nav-link <?= basename($_SERVER['PHP_SELF']) == 'contato.php' ? 'active' : '' ?>" href="contato.php">Contato</a>
           </li>
         </ul>
- 
-        <!-- Botões à direita -->
         <div class="auth-buttons ms-auto d-flex gap-3">
           <?php if (isset($_SESSION['usuario'])): ?>
-            <span class="text-white">
+            <span>
               <i class="bi bi-person-check"></i>
-              Você está logado como <strong><?= htmlspecialchars($_SESSION['usuario']) ?></strong>
+              Logado como <strong><?= htmlspecialchars($_SESSION['usuario']) ?></strong>
             </span>
             <a href="logout.php" class="btn btn-danger btn-sm">
               <i class="bi bi-box-arrow-right"></i> Sair
@@ -172,180 +224,116 @@ $site = [
       </div>
     </div>
   </nav>
- 
-  <!-- Bloco de Destaque com imagem de fundo -->
-  <section
-    id="hero"
-    style="
-      background: url('Imagens/foto3.jpg') center/cover no-repeat;
-      height: 600px;
-      width: 100%;
-      position: relative;
-      margin: 0;
-      padding: 0;
-      "
-  >
-    <div
-    style="
-        background-color: rgba(0, 0, 0, 0.6);
-        height: 100%;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: left;
-        color: white;
-        "
-     
-    >
-      <div class="container">
-        <div class="row align-items-center">
-          <!-- Título à esquerda -->
-          <div class="col-md-6">
-            <h1 class="display-4 fw-bold">
-              <i class="bi bi-lightning-charge-fill"></i> Blockchain Verde
-            </h1>
-          </div>
- 
-          <!-- Texto à direita -->
-          <div class="col-md-6">
-            <p class="lead">
-              Bem-vindo ao nosso portal de Energia Renovável com Blockchain!<br /><br />
-              Este site foi desenvolvido para conectar
-              <strong>empresas fornecedoras de energia renovável</strong> com
-              <strong>usuários interessados na compra direta dessa energia</strong>,
-              promovendo um ambiente seguro, transparente e sustentável.<br /><br />
-              A seguir, explicamos como o site funciona e como você pode utilizá-lo da melhor forma:
-            </p>
-          </div>
+
+  <!-- Hero Section -->
+  <section id="hero">
+    <div class="overlay"></div>
+    <div class="container py-5">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <h1>
+            <i class="bi bi-lightning-charge-fill"></i> Blockchain Verde
+          </h1>
+        </div>
+        <div class="col-md-6">
+          <p class="lead">
+            Bem-vindo ao nosso portal de Energia Renovável com Blockchain!<br><br>
+            Este site foi desenvolvido para conectar <strong>empresas fornecedoras de energia renovável</strong> com <strong>usuários interessados na compra direta dessa energia</strong>, promovendo um ambiente seguro, transparente e sustentável.<br><br>
+            A seguir, explicamos como o site funciona e como você pode utilizá-lo da melhor forma:
+          </p>
         </div>
       </div>
     </div>
   </section>
- 
+
   <div class="container mt-5">
-    <h1 class="mb-4">Tipos de Cadastro na Plataforma Blockchain Verde</h1>
- 
+    <h1 class="mb-4 text-center">Tipos de Cadastro na Plataforma Blockchain Verde</h1>
     <div class="row g-4">
       <!-- Card Usuário Comprador -->
-      <div class="col-md-6">
-        <div class="card h-100 shadow border-0">
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100">
           <div class="card-body">
-            <h4 class="card-title">👤 Usuário Comprador (Pessoa Física)</h4>
+            <h4 class="card-title">👤 Usuário Comprador</h4>
             <p class="card-text">
-              Esse perfil é ideal para pessoas que desejam comprar energia renovável de forma direta, segura e transparente.
+              Perfil para pessoas que desejam comprar energia renovável de forma direta, segura e transparente.
             </p>
             <ul>
-              <li>Visualizar todas as ofertas disponíveis e filtrar por preço, quantidade ou tipo de energia.</li>
-              <li>Consultar informações detalhadas das empresas fornecedoras, incluindo histórico e avaliações.</li>
-              <li>Enviar pedidos de compra diretamente pela plataforma.</li>
-              <li>Deixar comentários ou mensagens nas ofertas para tirar dúvidas ou negociar condições.</li>
+              <li>Visualizar ofertas e filtrar por preço, quantidade ou tipo de energia.</li>
+              <li>Consultar informações das empresas fornecedoras.</li>
+              <li>Enviar pedidos de compra pela plataforma.</li>
+              <li>Deixar comentários ou negociar condições.</li>
             </ul>
-            <p>
-              Perfil perfeito para consumidores que querem contribuir com o uso consciente de energia e se beneficiar de transações seguras e rastreáveis por blockchain.
-            </p>
           </div>
         </div>
       </div>
- 
       <!-- Card Empresa Fornecedora -->
-      <div class="col-md-6">
-        <div class="card h-100 shadow border-0">
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100">
           <div class="card-body">
-            <h4 class="card-title">🏭 Empresa Fornecedora de Energia</h4>
+            <h4 class="card-title">🏭 Empresa Fornecedora</h4>
             <p class="card-text">
-              Destinado a empresas e empreendedores do setor de energia renovável que desejam vender seus produtos com segurança e credibilidade.
+              Empresas e empreendedores do setor de energia renovável que desejam vender seus produtos com segurança e credibilidade.
             </p>
             <ul>
-              <li>Publicar e gerenciar ofertas de energia com informações detalhadas.</li>
-              <li>Receber e responder pedidos de compra de usuários.</li>
-              <li>Interagir com comentários e dúvidas dos compradores.</li>
-              <li>Registrar vendas na blockchain para garantir rastreabilidade e segurança.</li>
+              <li>Publicar e gerenciar ofertas de energia.</li>
+              <li>Receber e responder pedidos de compra.</li>
+              <li>Interagir com comentários dos compradores.</li>
+              <li>Registrar vendas na blockchain.</li>
             </ul>
-            <p>
-              Perfil indicado para empresas que buscam ampliar seu alcance, conquistar confiança no mercado e demonstrar compromisso com a sustentabilidade.
+          </div>
+        </div>
+      </div>
+      <!-- Card Investidor -->
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100">
+          <div class="card-body">
+            <h4 class="card-title">💹 Investidor</h4>
+            <p class="card-text">
+              Perfil para quem deseja investir em projetos de energia renovável e acompanhar resultados com transparência.
             </p>
+            <ul>
+              <li>Acompanhar projetos e oportunidades de investimento.</li>
+              <li>Verificar retorno e impacto ambiental.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- Card Pesquisador -->
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100">
+          <div class="card-body">
+            <h4 class="card-title">🔬 Pesquisador</h4>
+            <p class="card-text">
+              Usuários interessados em dados, estudos e relatórios sobre blockchain e energia renovável.
+            </p>
+            <ul>
+              <li>Acessar dados abertos e relatórios do setor.</li>
+              <li>Participar de fóruns e discussões técnicas.</li>
+            </ul>
           </div>
         </div>
       </div>
     </div>
   </div>
- 
-  <div class="container mt-5">
-  <h1 class="mb-4">Tipos de Cadastro na Plataforma Blockchain Verde</h1>
- 
-  <div class="row g-4">
-    <!-- Card Usuário Comprador -->
-    <div class="col-md-6 col-lg-3">
-      <div class="card h-100 shadow border-0">
-        <div class="card-body">
-          <h4 class="card-title">👤 Usuário Comprador</h4>
-          <p class="card-text">
-            Perfil para pessoas que desejam comprar energia renovável de forma segura.
-          </p>
-        </div>
-      </div>
-    </div>
- 
-    <!-- Card Empresa Fornecedora -->
-    <div class="col-md-6 col-lg-3">
-      <div class="card h-100 shadow border-0">
-        <div class="card-body">
-          <h4 class="card-title">🏭 Empresa Fornecedora</h4>
-          <p class="card-text">
-            Empresas que vendem energia renovável com segurança e rastreabilidade.
-          </p>
-        </div>
-      </div>
-    </div>
- 
-    <!-- Card Investidor -->
-    <div class="col-md-6 col-lg-3">
-      <div class="card h-100 shadow border-0">
-        <div class="card-body">
-          <h4 class="card-title">💹 Investidor</h4>
-          <p class="card-text">
-            Perfil destinado a quem deseja investir em projetos de energia renovável.
-          </p>
-        </div>
-      </div>
-    </div>
- 
-    <!-- Card Pesquisador -->
-    <div class="col-md-6 col-lg-3">
-      <div class="card h-100 shadow border-0">
-        <div class="card-body">
-          <h4 class="card-title">🔬 Pesquisador</h4>
-          <p class="card-text">
-            Usuários interessados em dados e estudos sobre blockchain e energia.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
- 
+
   <footer class="mt-5">
     <div class="container">
       <div class="row">
-        <!-- Sobre o site -->
         <div class="col-md-4 mb-3">
           <h5>Sobre o Blockchain Verde</h5>
           <p>
             Plataforma dedicada à compra e venda de energia renovável com total transparência e rastreabilidade garantida pela tecnologia blockchain.
           </p>
         </div>
-        <!-- Links úteis -->
         <div class="col-md-4 mb-3">
           <h5>Links Úteis</h5>
           <ul class="list-unstyled">
-            <li><a href="index.php" class="text-white text-decoration-none">Início</a></li>
-            <li><a href="comentarios.php" class="text-white text-decoration-none">Comentários</a></li>
-            <li><a href="#servicos" class="text-white text-decoration-none">Serviços</a></li>
-            <li><a href="#contato" class="text-white text-decoration-none">Contato</a></li>
+            <li><a href="index.php">Início</a></li>
+            <li><a href="comentarios.php">Comentários</a></li>
+            <li><a href="servicos.php">Serviços</a></li>
+            <li><a href="contato.php">Contato</a></li>
           </ul>
         </div>
-        <!-- Contato -->
         <div class="col-md-4 mb-3">
           <h5>Contato</h5>
           <p>
@@ -356,7 +344,6 @@ $site = [
         </div>
       </div>
       <hr style="border-color: rgba(255,255,255,0.2);" />
-      <!-- Data e créditos -->
       <div class="text-center">
         <small>
           &copy; <?= date('Y') ?> Blockchain Verde — Criado em <?= date('d/m/Y', strtotime('2025-01-10')) ?>.<br />
@@ -365,7 +352,7 @@ $site = [
       </div>
     </div>
   </footer>
- 
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
