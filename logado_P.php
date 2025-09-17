@@ -1,4 +1,6 @@
+
 <?php
+//esta pegadno
 session_start();
 $site = [
   'titulo' => 'Blockchain Verde',
