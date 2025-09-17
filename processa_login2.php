@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'nome' => $usuario['nome_empresa']
             ];
             
-            header("Location: dashboard.php");
+            header("Location: dashboard_E.php");
             exit();
         } else {
             $_SESSION['error'] = "Senha incorreta.";
